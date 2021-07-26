@@ -7,7 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.Optional;
 
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,15 +19,15 @@ import com.wallet.entity.User;
 
 @SpringBootTest
 @ActiveProfiles("test")
-public class UserRepositoryTest {
+class UserRepositoryTest {
 
 	private static final String EMAIL = "teste@teste.com";
 
 	@Autowired
 	UserRepository repository;
 
-	@BeforeAll
-	public void setUp() {
+	@BeforeEach
+	void setUp() {
 		User u = new User();
 		u.setName("Set up user");
 		u.setPassword("teste123");
@@ -35,14 +37,15 @@ public class UserRepositoryTest {
 
 	}
 
-	@AfterAll
-	public void tearDown() {
+	@AfterEach
+	void tearDown() {
 
 		repository.deleteAll();
 
 	}
+
 	@Test
-	private void testSave() {
+	void testSave() {
 		User u = new User();
 		u.setName("Teste");
 		u.setPassword("12345");
@@ -55,7 +58,7 @@ public class UserRepositoryTest {
 	}
 
 	@Test
-	private void testFindByEmail() {
+	void testFindByEmail() {
 		Optional<User> response = repository.findByEmailEquals(EMAIL);
 
 		assertTrue(response.isPresent());
