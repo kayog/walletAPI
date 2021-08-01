@@ -4,9 +4,11 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.Pattern;
 
-import com.wallet.entity.Wallet;
+import org.hibernate.validator.constraints.Length;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
 
@@ -15,15 +17,16 @@ public class WalletItemDTO {
 	
 	private Long id;
 	@NotNull(message = "Insira o id da carteira.")
-	private Wallet wallet;
+	private Long wallet;
 	@NotNull(message = "Imforme uma data.")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy", locale = "pt-BR", timezone = "Brazil/East")
 	private Date date;
-	@NotNull(message = "Imforme um tipo")
+	@NotNull(message = "Informe um tipo")
+	@Pattern(regexp="^(ENTRADA|SAÍDA)$", message = "Para o tipo somente são aceitos os valores ENTRADA ou SAÍDA")
 	private String type;
-	@NotNull(message = "Imforme uma descrição.")
-	@Size(min = 5,message = "A descrição deve conter no minimo 5 caracteres")
+	@NotNull(message = "Informe uma descrição")
+	@Length(min = 5, message = "A descrição deve ter no mínimo 5 caracteres")
 	private String description;
-	@NotNull(message = "Informe um valor.")
+	@NotNull(message = "Informe um valor")
 	private BigDecimal value;
-
 }
