@@ -2,6 +2,8 @@ package com.wallet.dto;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,4 +24,7 @@ public class UserDTO {
 	@NotEmpty
 	@Email(message = "E-mail inválido")
 	private String email;
+	@NotNull(message = "Informe uma role de acesso")
+	@Pattern(regexp="^(ROLE_ADMIN|ROLE_USER)$", message = "Para a role de acesso somente são aceitos os valores ROLE_ADMIN ou ROLE_USER")
+	private String role;
 }

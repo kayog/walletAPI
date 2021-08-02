@@ -140,7 +140,7 @@ public class WalletItemController {
 	}
 
 	@DeleteMapping(value = "/{walletItemId}")
-	@PreAuthorize("hasAnyRole('ADMIN')")
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
 	public ResponseEntity<Response<String>> delete(@PathVariable("walletItemId") Long walletItemId) {
 		Response<String> response = new Response<String>();
 
