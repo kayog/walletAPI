@@ -1,8 +1,10 @@
 dist: trusty
 language: java
+sudo: true
 jdk:
 - oraclejdk8
 before_install:
+- chmod +x mvnw
 - export TZ=Brazil/East
 deploy:
   provider: heroku
