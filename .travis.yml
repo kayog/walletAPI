@@ -6,6 +6,7 @@ jdk:
 services:
    - postgresql
 before_install:
+- psql -c 'create database friend_status_test;' -U postgres
 - chmod +x mvnw
 - export TZ=Brazil/East
 deploy:
