@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/kayog/walletAPI.svg?branch=master)](https://travis-ci.org/kayog/walletAPI)
+[![Build Status](https://travis-ci.com/github/kayog/walletAPI.svg?branch=master)](https://travis-ci.com/github/kayog/walletAPI)
 
 # Wallet API
 
