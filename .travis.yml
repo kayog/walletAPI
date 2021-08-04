@@ -4,7 +4,17 @@ sudo: true
 jdk:
    - oraclejdk8
 services:
-  - memcached
+  - postgresql
+addons:
+  postgresql: "10"
+  apt:
+    packages:
+    - postgresql-10
+    - postgresql-client-10
+env:
+  global:
+  - PGPORT=5432
+  - PGUSER=postgres
 before_install:
 - psql -c 'create database wallet;' -U postgres
 - chmod +x mvnw
