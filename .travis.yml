@@ -5,20 +5,20 @@ jdk:
    - oraclejdk8
 services:
   - postgresql
-addons:
-  postgresql: "10"
-  apt:
-    packages:
-    - postgresql-10
-    - postgresql-client-10
 env:
   global:
   - PGPORT=5432
   - PGUSER=postgres
-before_install:
+before_script:
 - psql -c 'create database wallet;' -U postgres
+before_install:
 - chmod +x mvnw
 - export TZ=Brazil/East
+- sudo apt-get update
+- sudo apt-get --yes remove postgresql\*
+- sudo apt-get install -y postgresql-11 postgresql-client-11
+- sudo cp /etc/postgresql/{9.6,11}/main/pg_hba.conf
+- sudo service postgresql restart 11
 deploy:
   provider: heroku
   api_key:
