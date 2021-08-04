@@ -3,16 +3,8 @@ language: java
 sudo: true
 jdk:
    - oraclejdk8
-addons:
-  postgresql: "11"
-  apt:
-    packages:
-    - postgresql-11
-    - postgresql-client-11
-env:
-  global:
-  - PGPORT=5433
-  - PGUSER=travis
+services:
+  - memcached
 before_install:
 - psql -c 'create database wallet;' -U postgres
 - chmod +x mvnw
