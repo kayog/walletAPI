@@ -2,9 +2,9 @@ dist: trusty
 language: java
 sudo: true
 jdk:
-- oraclejdk8
+   - oraclejdk8
 services:
-   - postgresql
+   - postgresql: "9.2"
 before_install:
 - psql -c 'create database wallet;' -U postgres
 - chmod +x mvnw
