@@ -2,7 +2,7 @@
 
 # Wallet API
 
-Projeto criado para servir de referência ao curso *API RESTfull com Spring Boot utilizando TDD, CI e CD* que está divulgado na plataforma Udemy, a principal funcionalidade dessa API é permitir o cadastro de usuários para manipular de maneira individual uma carteira, inserindo, alterando, removendo ou adicionado itens.
+Projeto criado para servir de referência ao curso *API RESTful com Spring Boot utilizando TDD, CI e CD a principal funcionalidade dessa API é permitir o cadastro de usuários para manipular de maneira individual uma carteira, inserindo, alterando, removendo ou adicionado itens.
 
 ## Detalhes do projeto
 *Esse projeto possui as seguintes características:*
@@ -21,7 +21,7 @@ Projeto criado para servir de referência ao curso *API RESTfull com Spring Boot
 ## Como executar a aplicação
 Certifique-se de ter o Maven instalado e adicionado ao PATH de seu sistema operacional, assim como o Git, crie um banco de dados no postgres e altere o arquivo application.properties informando as credenciais para a aplicação acessar a base de dados, não se preocupe com a criação das tabelas, o flyway se encarregará dessa função.
 ```
-git clone https://github.com/vitoralves/walletAPI
+git clone https://github.com/kayog/walletAPI
 cd walletAPI
 mvn spring-boot:run
 Acesse os endpoints através da url http://localhost:8080
